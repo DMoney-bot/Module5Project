@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Site</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f0995004d4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="landing">
+      <nav>
+        <ul class="navLinkList">
+          <li class="navLink linkHoverEffect"><a href="#">Home</a></li>
+          <li class="navLink linkHoverEffect">
+            <a href="#">Find Your Next Movie</a>
+          </li>
+          <li class="navLink">
+            <button class="navButton">Contact</button>
+          </li>
+        </ul>
+      </nav>
+      <div class="navMain">
+        <h1 class="navTitle">Browse Movies</h1>
+        <div class="searchWrapper">
+          <input
+            type="search"
+            class="movieSearch"
+            id="searchInput"
+            placeholder="Search For Your Next Movie"
+          />
+          <button class="searchButton" id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass click"></i>
+          </button>
+        </div>
+      </div>
+      <div class="results">
+        <h1 class="resultsTitle">Search Results:</h1>
+        <div class="ratingRange">
+          <h2>Rating Range 1 to 5</h2>
+        </div>
+      </div>
+    </section>
+    <section class="movieSelection">
+      <div class="movieSelectionWrapper">
+        <div class="movieList" id="movieContainer"></div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
