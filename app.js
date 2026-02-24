@@ -1,10 +1,15 @@
-// API https://www.omdbapi.com/?apikey=57d5f13a&s
+// API http://www.omdbapi.com/?apikey=57d5f13&
 
 console.log("JS is working")
 
 const container = document.getElementById("movieContainer")
+const ratingGroup = document.getElementById("ratingFilter")
 
-fetch("https://www.omdbapi.com/?apikey=57d5f13a&s=marvel")
+function fetchMovies(searchTerm){
+
+container.innerHTML = "";
+
+fetch(`https://www.omdbapi.com/?apikey=57d5f13a&s=${searchTerm}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -14,22 +19,38 @@ fetch("https://www.omdbapi.com/?apikey=57d5f13a&s=marvel")
         }
         
         data.Search.forEach(movie => {
-            const movieBox = document.createElement("div")
-            movieBox.classList.add("movie");
+            fetch(`https://www.omdbapi.com/?apikey=57d5f13a&i=${movie.imdbID}`)
+                .then(res => res.json())
+                .then(fullMovie => {
+                    const rating = Math.round(fullMovie.imdbRating / 2)
+                    const selectedRating = document.getElementById("ratingFilter").value;
+                    console.log("dropdown value: ", ratingFilter.value);
 
-            movieBox.innerHTML = `
-            <img src="${movie.Poster !== "N/A" ? movie.Poster : ''}"/>
-            <h1>${movie.Title}</h1>
-            <p>${movie.Year}</p>
-            `;
+                    if (rating < selectedRating) return;                    
+                    const movieBox = document.createElement("div");
+                    movieBox.classList.add("movie");
 
-            container.appendChild(movieBox)
+                    movieBox.innerHTML = `
+                    <img src="${fullMovie.Poster}">
+                    <h3>${fullMovie.Title}</h3>
+                    <p>⭐${rating}/5</p>
+                    `;
+
+                    container.appendChild(movieBox);
+                })
         });
     })
     .catch(error => {
         console.error("Error fetching movies: ", error);
     })
 
+}
+
+fetchMovies("");
+
+ratingFilter.addEventListener("change", () => {
+    fetchMovies(searchInput.value || "marvel");
+});
 
 searchBtn.addEventListener("click", () => {
     fetchMovies(searchInput.value);
