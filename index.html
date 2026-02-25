@@ -32,7 +32,7 @@
             id="searchInput"
             placeholder="Search For Your Next Movie"
           />
-          <button class="searchButton" id="searchBtn">
+          <button class="searchButton" id="searchBtn" onclick="loading(event)">
             <i class="fa-solid fa-magnifying-glass click"></i>
           </button>
         </div>
@@ -41,7 +41,7 @@
         <h1 class="resultsTitle">Search Results:</h1>
         <div class="ratingRange">
           <h2>Rating Range 1 to 5</h2>
-          <select id="ratingFilter">
+          <select class="ratingDropdown" id="ratingFilter">
             <option value="0">All Ratings</option>
             <option value="1">1+</option>
             <option value="2">2+</option>
@@ -55,6 +55,9 @@
     <section class="movieSelection">
       <div class="movieSelectionWrapper">
         <div class="movieList" id="movieContainer"></div>
+        <div class="loadingState">
+          <i class="fa-solid fa-spinner"></i>
+        </div>
       </div>
     </section>
     <script src="app.js"></script>
