@@ -49,11 +49,11 @@ function fetchMovies(searchTerm){
                 load.classList.remove("loadingStateVisible");
                 console.error(error);
             })
-    }, 2000);
+    }, 1000);
 
 }
 
-fetchMovies("");
+fetchMovies(" ");
 
 ratingFilter.addEventListener("change", () => {
     fetchMovies(searchInput.value || "marvel");
