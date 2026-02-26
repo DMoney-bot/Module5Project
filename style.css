@@ -12,6 +12,17 @@ html {
     background-color: #edf2f4;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 li {
     list-style-type: none;
 }
@@ -139,6 +150,11 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* MOVIE SELECTION */
 
+.movieSelection {
+    flex: 1;
+    display: flex;
+}
+
 .movieSelectionWrapper {
     width: 100%;
     max-width: 2000px;
@@ -146,6 +162,7 @@ input[type="search"]::-webkit-search-cancel-button {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
+    flex: 1;
 }
 
 .movieList {
@@ -183,7 +200,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .loadingState {
-    background-color: green;
+    background-color: #edf2f4;
     position: absolute;
     top: 0;
     left: 0;
@@ -204,6 +221,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .fa-spinner {
     animation: spinner 850ms infinite linear;
+    
 }
 
 @keyframes spinner{
