@@ -272,7 +272,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .ratingRange {
         font-size: 15px;
     }
